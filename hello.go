@@ -18,16 +18,16 @@
 package main
 
 import (
+	"fmt"
 	"net"
-  "fmt"
 	// "os"
 )
 
 func main() {
-  fmt.Println(localIP())
+	fmt.Println(localIP())
 }
 
-func localIP() (net.IP) {
+func localIP() net.IP {
 	tt, err := net.Interfaces()
 	if err != nil {
 		return nil

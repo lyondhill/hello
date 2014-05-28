@@ -13,11 +13,11 @@ import "C"
 import "unsafe"
 
 func Example() {
-        cs := C.CString("(gopart)Hello from go\n")
-        C.myprint(cs)
-        C.free(unsafe.Pointer(cs))
+	cs := C.CString("(gopart)Hello from go\n")
+	C.myprint(cs)
+	C.free(unsafe.Pointer(cs))
 }
 
 func main() {
-  Example()
+	Example()
 }
