@@ -1,20 +1,4 @@
-// package main
 
-// import (
-//   "log"
-//   "os/exec"
-// )
-
-// func main() {
-//   cmd := exec.Command("ruby", "/Users/lyon/gocode/src/github.com/lyondhill/hello/long.rb")
-//   stdout, err := cmd.StdoutPipe()
-//   cmd.Start()
-//   r := bufio.NewReader(stdout)
-//   for {
-//     line, _, err := r.ReadLine()
-//     log.Print(line)
-//   }
-// }
 package main
 
 import (
@@ -42,6 +26,7 @@ func localIP() net.IP {
 			if !ok {
 				continue
 			}
+
 			v4 := ipnet.IP.To4()
 			if v4 == nil || v4[0] == 127 { // loopback address
 				continue

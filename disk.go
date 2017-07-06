@@ -3,6 +3,7 @@ package main
 import "github.com/shirou/gopsutil/disk"
 import "fmt"
 
+
 func main() {
 	parts, _ := disk.DiskPartitions(false)
 	fmt.Printf("%v\n\n", parts)

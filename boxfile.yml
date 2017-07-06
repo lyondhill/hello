@@ -1,5 +1,6 @@
 run.config:
-  image: nanobox/build:beta
+  image: nanobox/build
+  fs_watch: true
   engine: golang
   engine.config:
     package: github.com/lyondhill/hello
