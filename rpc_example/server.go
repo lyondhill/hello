@@ -5,6 +5,7 @@ import (
  "net"
  "net/rpc"
  "log"
+ "time"
 )
  
 type Args struct {
@@ -19,18 +20,26 @@ func (t *Calculator) Add(args Args, reply *int) error {
 }
  
 func main(){
+  go func() {
+    listener, e := net.Listen("tcp", ":1234")
+    if e != nil {
+      log.Fatal("listen error:", e)
+    }
+    log.Printf("listening\n")
+    for {
+      if conn, err := listener.Accept(); err != nil {
+        log.Fatal("accept error: " + err.Error())
+      } else {
+        log.Printf("new connection established\n")
+        go rpc.ServeConn(conn)
+      }
+    }
+    
+  }()
+  <- time.After(time.Second)
   cal := new(Calculator)
   rpc.Register(cal)
-  listener, e := net.Listen("tcp", ":1234")
-  if e != nil {
-    log.Fatal("listen error:", e)
-  }
-  for {
-    if conn, err := listener.Accept(); err != nil {
-      log.Fatal("accept error: " + err.Error())
-    } else {
-      log.Printf("new connection established\n")
-      go rpc.ServeConn(conn)
-    }
-  }
+  log.Printf("registered\n")
+  <- time.After(100 * time.Second)
+
 }
