@@ -1,22 +1,45 @@
 package main
 
 import (
-	"github.com/gorilla/mux"
+	"context"
+	"fmt"
 	"net/http"
+	"strconv"
+	"time"
 )
 
 func main() {
-	r := mux.NewRouter()
-	r.Handle("/", handler{say: "stuff"}).Host("say.my.com").PathPrefix("/stuff/")
-	r.Handle("/", handler{say: "woot"}).Host("my.com").PathPrefix("/woot/")
-	r.Handle("/", handler{say: "wow"}).Host("i.say.my.com")
-	http.ListenAndServe("0.0.0.0:8080", r)
-}
 
-type handler struct {
-	say string
-}
+	go http.ListenAndServe("0.0.0.0:8080", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		for num := 0; num < 100; num++ {
+			select {
+			case <-r.Context().Done():
+				fmt.Println("what")
+				return
+			default:
+			}
 
-func (self handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
-	rw.Write([]byte(self.say))
+			time.Sleep(time.Second)
+			fmt.Println("server", num)
+			w.Write([]byte(strconv.Itoa(num)))
+		}
+	}))
+
+	req, err := http.NewRequest("GET", "http://localhost:8080", nil)
+	fmt.Println(err)
+
+	ctx, cancel := context.WithTimeout(context.Background(), 4*time.Second)
+
+	req = req.WithContext(ctx)
+
+	go func() {
+		time.Sleep(4 * time.Second)
+		fmt.Println("cancel")
+		cancel()
+		http.DefaultTransport.(*http.Transport).CancelRequest(req)
+	}()
+
+	resp, err := http.DefaultClient.Do(req)
+	fmt.Println(resp, "err", err)
+	time.Sleep(time.Minute)
 }
