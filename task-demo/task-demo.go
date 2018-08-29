@@ -154,6 +154,7 @@ func write() {
 		UserID: u.ID,
 		Permissions: []platform.Permission{
 			platform.WriteBucketPermission(bIn.ID),
+			platform.ReadBucketPermission(bIn.ID),
 		},
 	}
 	if err := auths.CreateAuthorization(context.Background(), a); err != nil {
@@ -359,21 +360,16 @@ func listTasks() {
 }
 
 func removeTasks() {
-	fmt.Println("here")
 	users := phttp.UserService{Addr: *gatewayEndpoint}
 	un := userName()
 	u, err := users.FindUser(context.Background(), platform.UserFilter{Name: &un})
 	if err != nil {
-		fmt.Println("hereerr", err)
 		log.Fatal(err)
 	}
-
-	fmt.Println("user", u)
 
 	url := *gatewayEndpoint + "/v1/tasks?user=" + u.ID.String()
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Println("hereear", err)
 		log.Fatal(err)
 	}
 	defer resp.Body.Close()
@@ -383,11 +379,9 @@ func removeTasks() {
 		Name   string `json:"name"`
 		Script string `json:"flux"`
 	}
-	fmt.Println("here")
 	if err := json.NewDecoder(resp.Body).Decode(&tasks); err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("here2")
 
 	for _, t := range tasks {
 		log.Printf("Task: ID=%s\n", t.ID)
