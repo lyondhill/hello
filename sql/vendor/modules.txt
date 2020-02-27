@@ -1,0 +1,17 @@
+# github.com/golang-migrate/migrate/v4 v4.9.1
+github.com/golang-migrate/migrate/v4
+github.com/golang-migrate/migrate/v4/database
+github.com/golang-migrate/migrate/v4/internal/url
+github.com/golang-migrate/migrate/v4/source
+github.com/golang-migrate/migrate/v4/source/go_bindata
+# github.com/hashicorp/errwrap v1.0.0
+github.com/hashicorp/errwrap
+# github.com/hashicorp/go-multierror v1.0.0
+github.com/hashicorp/go-multierror
+# github.com/jmoiron/modl v0.0.0-20160417153729-99654d091ece
+github.com/jmoiron/modl
+# github.com/jmoiron/sqlx v1.2.0
+github.com/jmoiron/sqlx
+github.com/jmoiron/sqlx/reflectx
+# github.com/mattn/go-sqlite3 v2.0.3+incompatible
+github.com/mattn/go-sqlite3

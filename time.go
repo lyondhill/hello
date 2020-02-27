@@ -6,7 +6,20 @@ import (
 )
 
 func main() {
-	t := time.Now().Local()
-	fmt.Println(t.Format("2006-01-02T15:04:05Z07:00"))
-	fmt.Println(t.Format("2006-01-02T15:04:05"))
+	timer := time.NewTimer(time.Second)
+	
+	go func() {
+		for {
+			select {
+			case <-timer.C:
+				fmt.Println("ticking")
+			}
+		}
+	}()
+
+	time.Sleep(2*time.Second)
+	timer.Reset(time.Second)
+	timer.Stop()
+	timer.Reset(time.Second)
+	time.Sleep(2*time.Second)
 }

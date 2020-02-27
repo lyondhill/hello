@@ -1,0 +1,139 @@
+package migrations
+
+import (
+	"bytes"
+	"compress/gzip"
+	"fmt"
+	"io"
+	"strings"
+)
+
+func bindata_read(data []byte, name string) ([]byte, error) {
+	gz, err := gzip.NewReader(bytes.NewBuffer(data))
+	if err != nil {
+		return nil, fmt.Errorf("Read %q: %v", name, err)
+	}
+
+	var buf bytes.Buffer
+	_, err = io.Copy(&buf, gz)
+	gz.Close()
+
+	if err != nil {
+		return nil, fmt.Errorf("Read %q: %v", name, err)
+	}
+
+	return buf.Bytes(), nil
+}
+
+var __000001_create_user_table_sql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8e\xc1\xaa\xc2\x30\x10\x45\xf7\xf9\x8a\xcb\xac\xde\xc3\xf6\x0b\xba\xaa\x36\x3b\x41\x29\xf5\x03\x02\x8e\x75\x16\x4d\x6a\x66\x42\xfb\xf9\x22\x04\x71\x79\xb8\x17\xce\x69\x5b\x1c\x16\x99\x73\x30\xc6\x6d\x75\xa7\xd1\xf7\x93\xc7\xd4\x1f\xcf\x1e\x54\x94\x33\xe1\x8f\xe4\x4e\x90\x68\x3c\x73\x46\x89\xf2\x2a\xdc\x80\x62\x58\x98\x60\xbc\x5b\x03\x4a\xa1\xd8\xf3\x73\xab\xac\x16\xac\xe8\x17\xd7\xa0\xba\xa5\x5c\xf7\xff\xce\xb9\x5f\xef\x90\xb6\xe8\x86\xf1\x72\xad\x5e\x79\x80\x77\x51\xd3\x5a\xd0\xbd\x03\x00\x00\xff\xff\xf1\x27\xa3\x4f\xa5\x00\x00\x00")
+
+func _000001_create_user_table_sql() ([]byte, error) {
+	return bindata_read(
+		__000001_create_user_table_sql,
+		"000001_create_user_table.sql",
+	)
+}
+
+var __000002_create_urm_table_sql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\xd2\xd5\x55\xd0\xce\xcd\x4c\x2f\x4a\x2c\x49\x55\x08\x2d\xe0\x72\x0e\x72\x75\x0c\x71\x55\x08\x71\x74\xf2\x71\x55\x50\x2a\x2d\x4e\x2d\x2a\x4a\x2d\xce\x2f\x2d\x4a\x4e\xcd\x4d\x2c\x28\xc8\xcc\x4b\x57\x52\xd0\x00\x0b\x67\xa6\x28\x29\x64\xe6\x95\xa4\xa6\xa7\x16\xe9\x40\x14\x96\x54\x16\xa4\x2a\x29\x94\xa4\x56\x94\xe8\x28\x28\x41\x55\xa3\x88\xc1\x4c\xc2\x2a\x88\x64\x9e\xa6\x35\x17\x17\xb2\xb3\x5c\xf2\xcb\xf3\xb8\x5c\x82\xfc\x03\xa0\xce\xca\x4c\x53\x48\xad\xc8\x2c\x2e\x29\xc6\xee\x40\x6b\x40\x00\x00\x00\xff\xff\xeb\xcf\x9a\xb7\xd3\x00\x00\x00")
+
+func _000002_create_urm_table_sql() ([]byte, error) {
+	return bindata_read(
+		__000002_create_urm_table_sql,
+		"000002_create_urm_table.sql",
+	)
+}
+
+var __000003_create_org_table_sql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x5c\xce\xc1\xaa\x82\x50\x10\x87\xf1\xfd\x79\x8a\x3f\xb3\xba\x97\xf4\x09\x5c\x59\xba\x0b\x0a\xb1\x07\x18\x3c\x93\xcc\xc2\xd1\x8e\x23\x49\x4f\x1f\x91\x8b\x70\xfb\xc1\x07\xbf\x3c\xc7\x61\xd0\x3e\xb1\x0b\x6e\x53\x38\x35\x75\xd9\xd6\x68\xcb\xe3\xb9\x06\x8d\xa9\x67\xd3\x17\xbb\x8e\x46\xf8\x23\x8d\x04\x35\x97\x5e\x12\x16\xd3\xc7\x22\x19\xc8\x78\x10\x82\xcb\xea\x19\x28\xca\xdc\x25\x9d\xbe\xc3\xd6\xba\x24\xec\x12\xd9\x09\x91\x5d\x5c\x87\xcf\xb6\x4c\x71\x5f\xff\x8b\x10\x7e\x3d\xd5\xf8\xb4\x50\x35\x97\xeb\xe6\xd1\x3b\x64\xd5\xd9\xe7\x9d\xac\x78\x07\x00\x00\xff\xff\x6a\x16\xa5\x4c\xc5\x00\x00\x00")
+
+func _000003_create_org_table_sql() ([]byte, error) {
+	return bindata_read(
+		__000003_create_org_table_sql,
+		"000003_create_org_table.sql",
+	)
+}
+
+var __000004_create_bucket_table_sql = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x5c\x8f\x41\x4e\x86\x30\x10\x85\xf7\x3d\xc5\x64\x56\x1a\xe1\x04\xac\x50\xd8\x99\x68\x08\x1e\xa0\xb6\x4f\x32\x51\xda\x5a\xa6\x11\x6e\x6f\x48\x0c\xc2\xbf\x9c\x6f\x5e\xf2\xde\x57\xd7\xf4\x30\xcb\x94\xad\x82\xde\x92\x79\x1a\xfa\x76\xec\x69\x6c\x1f\x9f\x7b\xe2\xf7\xe2\x3e\xa1\x4c\x77\x2c\x9e\x49\x82\x62\x42\xa6\x12\xe4\xbb\xa0\x22\x8e\x79\x3a\xf1\x8a\x58\xb7\x84\xf3\x1d\xec\x0c\x26\xc5\xaa\x15\xb1\xc7\xe2\xb2\x24\x95\x18\x0e\x96\xa1\x08\x3b\x49\xf1\x4b\xdc\x76\xc9\xff\xff\x90\x25\x5e\x7a\x5c\x86\x55\x78\xab\x4c\xde\x2a\x54\xe6\x7d\x4e\x49\xfe\x96\xde\x37\xc6\x9c\x0d\xbb\xf8\x13\x4c\x37\xbc\xbc\xfe\x19\xca\x07\x61\x95\x45\x97\xc3\xb5\xf9\x0d\x00\x00\xff\xff\xa6\xd9\x66\x21\x11\x01\x00\x00")
+
+func _000004_create_bucket_table_sql() ([]byte, error) {
+	return bindata_read(
+		__000004_create_bucket_table_sql,
+		"000004_create_bucket_table.sql",
+	)
+}
+
+// Asset loads and returns the asset for the given name.
+// It returns an error if the asset could not be found or
+// could not be loaded.
+func Asset(name string) ([]byte, error) {
+	cannonicalName := strings.Replace(name, "\\", "/", -1)
+	if f, ok := _bindata[cannonicalName]; ok {
+		return f()
+	}
+	return nil, fmt.Errorf("Asset %s not found", name)
+}
+
+// AssetNames returns the names of the assets.
+func AssetNames() []string {
+	names := make([]string, 0, len(_bindata))
+	for name := range _bindata {
+		names = append(names, name)
+	}
+	return names
+}
+
+// _bindata is a table, holding each asset generator, mapped to its name.
+var _bindata = map[string]func() ([]byte, error){
+	"000001_create_user_table.sql": _000001_create_user_table_sql,
+	"000002_create_urm_table.sql": _000002_create_urm_table_sql,
+	"000003_create_org_table.sql": _000003_create_org_table_sql,
+	"000004_create_bucket_table.sql": _000004_create_bucket_table_sql,
+}
+// AssetDir returns the file names below a certain
+// directory embedded in the file by go-bindata.
+// For example if you run go-bindata on data/... and data contains the
+// following hierarchy:
+//     data/
+//       foo.txt
+//       img/
+//         a.png
+//         b.png
+// then AssetDir("data") would return []string{"foo.txt", "img"}
+// AssetDir("data/img") would return []string{"a.png", "b.png"}
+// AssetDir("foo.txt") and AssetDir("notexist") would return an error
+// AssetDir("") will return []string{"data"}.
+func AssetDir(name string) ([]string, error) {
+	node := _bintree
+	if len(name) != 0 {
+		cannonicalName := strings.Replace(name, "\\", "/", -1)
+		pathList := strings.Split(cannonicalName, "/")
+		for _, p := range pathList {
+			node = node.Children[p]
+			if node == nil {
+				return nil, fmt.Errorf("Asset %s not found", name)
+			}
+		}
+	}
+	if node.Func != nil {
+		return nil, fmt.Errorf("Asset %s not found", name)
+	}
+	rv := make([]string, 0, len(node.Children))
+	for name := range node.Children {
+		rv = append(rv, name)
+	}
+	return rv, nil
+}
+
+type _bintree_t struct {
+	Func func() ([]byte, error)
+	Children map[string]*_bintree_t
+}
+var _bintree = &_bintree_t{nil, map[string]*_bintree_t{
+	"000001_create_user_table.sql": &_bintree_t{_000001_create_user_table_sql, map[string]*_bintree_t{
+	}},
+	"000002_create_urm_table.sql": &_bintree_t{_000002_create_urm_table_sql, map[string]*_bintree_t{
+	}},
+	"000003_create_org_table.sql": &_bintree_t{_000003_create_org_table_sql, map[string]*_bintree_t{
+	}},
+	"000004_create_bucket_table.sql": &_bintree_t{_000004_create_bucket_table_sql, map[string]*_bintree_t{
+	}},
+}}
