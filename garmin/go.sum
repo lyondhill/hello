@@ -1,0 +1,4 @@
+github.com/abrander/garmin-connect v0.0.0-20190609085612-b9269cfcf3ee h1:J+44peHzUXuGUenAPqt6bJdvRvY+U+NSlWjputzt/ok=
+github.com/abrander/garmin-connect v0.0.0-20190609085612-b9269cfcf3ee/go.mod h1:poJ6EaEedNZ+eN7x6FUcoiJxB0Jt3yX9H62vLEkHyY0=
+github.com/phacops/garminconnect v0.0.0-20180102181741-86bf8cb0b5ea h1:4eCsxqzJp9htWSlH9Uujrxi9q+lvQ2qn73/O4vAhgZQ=
+github.com/phacops/garminconnect v0.0.0-20180102181741-86bf8cb0b5ea/go.mod h1:5snKB/FVKhDKuR+Tb4NoBV9IStyghYh/zus9bTp6vW4=
