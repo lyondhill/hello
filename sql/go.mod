@@ -11,4 +11,6 @@ require (
 	github.com/jteeuwen/go-bindata v3.0.7+incompatible // indirect
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible
 	github.com/rubenv/sql-migrate v0.0.0-20200212082348-64f95ea68aa3
+	gopkg.in/gorp.v1 v1.7.2
+	gopkg.in/gorp.v2 v2.2.0
 )
