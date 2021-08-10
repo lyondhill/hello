@@ -1,23 +1,26 @@
 package main
 
 import (
-	"time"
 	"fmt"
 	"os"
-	"github.com/abrander/garmin-connect"
+	"time"
+
+	connect "github.com/abrander/garmin-connect"
 )
 
 type logger struct {
-
 }
+
 func (logger) Printf(format string, v ...interface{}) {
 	fmt.Print("logging: ")
 	fmt.Printf(format, v...)
 }
 
-func main()  {
+func main() {
+	username, _ := os.LookupEnv("USERNAME")
+	password, _ := os.LookupEnv("PASSWORD")
 	c := connect.NewClient(
-		connect.Credentials("lyondhill@gmail.com", "GusandR2"), 
+		connect.Credentials(username, password),
 		connect.DumpWriter(os.Stdout),
 		connect.DebugLogger(logger{}),
 	)

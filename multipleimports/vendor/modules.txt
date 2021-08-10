@@ -1,0 +1,6 @@
+# github.com/lyondhill/superimportantpackage v0.3.0
+## explicit
+github.com/lyondhill/superimportantpackage
+# github.com/lyondhill/usessecret v0.0.0-20201203194358-57fdc3ff607e
+## explicit
+github.com/lyondhill/usessecret

@@ -1,0 +1,6 @@
+github.com/lyondhill/superimportantpackage v0.1.0 h1:AkXLQ1qBoQUE6NQtDzhRdSJ9besl+swdoMPMc0khKUg=
+github.com/lyondhill/superimportantpackage v0.1.0/go.mod h1:hAH8kQesCzJztir4knNLyg8ZypAvftEfAcDY3FX1SwA=
+github.com/lyondhill/superimportantpackage v0.3.0 h1:xkmvBGr2n6Cjyqn5dJWfKaVHTxtWHVqG712HnUkIzME=
+github.com/lyondhill/superimportantpackage v0.3.0/go.mod h1:hAH8kQesCzJztir4knNLyg8ZypAvftEfAcDY3FX1SwA=
+github.com/lyondhill/usessecret v0.0.0-20201203194358-57fdc3ff607e h1:i9sXCBWZGQg3GyKHw8nfItLuGzt7ueoHXBbUqCz6Uqg=
+github.com/lyondhill/usessecret v0.0.0-20201203194358-57fdc3ff607e/go.mod h1:zdx5tp2VnXCe2lfa45iSdZbDjBZ4DBfAlsb4BcFPKNY=

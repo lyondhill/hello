@@ -467,10 +467,9 @@ func (c *Client) Authenticate() error {
 // This is very fragile.
 func extractSocialProfile(body io.Reader) (*SocialProfile, error) {
 	scanner := bufio.NewScanner(body)
-	fmt.Println("here?")
+
 	for scanner.Scan() {
 		line := scanner.Text()
-		fmt.Println(line)
 		if strings.Contains(line, "VIEWER_SOCIAL_PROFILE") {
 			line = strings.TrimSpace(line)
 			line = strings.Replace(line, "\\", "", -1)
